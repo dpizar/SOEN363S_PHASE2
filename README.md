@@ -26,7 +26,7 @@ Download the dataset from the following link: https://open.canada.ca/data/en/dat
 
 1. Download the dataset
 
-2. Run the parser (parser.java) to clean up the dataset file
+2. Run the parser (Converter.java) to clean up the dataset file
 
 3. Set up Cassandra
 
