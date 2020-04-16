@@ -1,14 +1,36 @@
-# SOEN363S_PHASE2
-DBMS Cassandra project
+<!-- ABOUT THE PROJECT -->
+# General Information
 
-You can download the Dataset from:
-https://open.canada.ca/data/en/dataset/b7c7d526-c0a8-4ccb-8ffa-8df36c9eefe4
+* Course: SOEN 363 - Winter 2020
 
-Dataset size: 583 M CSV file
+* DBMS: Cassandra
 
-Once the data has been dowloaded it needs to the file needs to be cleaned up by running it through the Parser.
+### Team Members
 
-Database Creation:
+Name |
+--- |
+Ale Niang
+Diego Pizarro
+Jay Chen
+Kevin Trinh
+
+<!-- GETTING STARTED -->
+# Getting Started
+
+Download the dataset from the following link: https://open.canada.ca/data/en/dataset/b7c7d526-c0a8-4ccb-8ffa-8df36c9eefe4
+
+* File size: 583 MB
+* The dataset describes the components of population change by economic region
+
+### Installation
+
+1. Download the dataset
+
+2. Run the parser (parser.java) to clean up the dataset file
+
+3. Set up Cassandra
+
+4. Create the database
 ```
 CREATE KEYSPACE populationcomponent WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 1};
 
@@ -55,9 +77,8 @@ CREATE CUSTOM INDEX agegroup ON populationcomponent.population (agegroup) USING 
  
 CREATE CUSTOM INDEX sex ON populationcomponent.population (sex) USING 'org.apache.cassandra.index.sasi.SASIIndex';
 ```
-
-Loading Data:
-
+5. Load the data
 ```
 COPY population  (ref_date, geo, dguid, componentsofgrowth, Sex, AgeGroup, UOM, UOM_ID, SCALAR_FACTOR, SCALAR_ID, VECTOR, COORDINATE, VALUE, STATUS, SYMBOL, TERMINATED, DECIMALS) FROM '/path/filename.csv' WITH DELIMITER = ',' AND HEADER=false AND quote = '"' AND ENCODING = 'UTF8';
 ```
+<!-- add more steps, etc. -->
