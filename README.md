@@ -56,4 +56,8 @@ CREATE CUSTOM INDEX agegroup ON populationcomponent.population (agegroup) USING 
 CREATE CUSTOM INDEX sex ON populationcomponent.population (sex) USING 'org.apache.cassandra.index.sasi.SASIIndex';
 ```
 
+Loading Data:
 
+```
+COPY population  (ref_date, geo, dguid, componentsofgrowth, Sex, AgeGroup, UOM, UOM_ID, SCALAR_FACTOR, SCALAR_ID, VECTOR, COORDINATE, VALUE, STATUS, SYMBOL, TERMINATED, DECIMALS) FROM '/path/filename.csv' WITH DELIMITER = ',' AND HEADER=false AND quote = '"' AND ENCODING = 'UTF8';
+```
